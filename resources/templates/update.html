@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/{{ book.id }}/store" method="POST">
+  {{ csrf_field }}
+  <div class="field">
+    <div class="control">
+      <input class="input is-success is-rounded is-focused" value="{{ book.title }}" name="title" type="text"
+        placeholder="Add Book title">
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <textarea class="textarea is-focused" name="description" type="text"
+        placeholder="Description">{{ book.description }}</textarea>
+    </div>
+  </div>
+  <div class="field has-item-centered">
+    <div class="control">
+      <!--Add action-->
+      <button class="button is-rounded is-outlined is-success">Add Book</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

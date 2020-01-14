@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css" />
+
+    <style>
+        .has-item-centered {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    {% endblock %}
+</head>
+
+<body>
+    <nav class="nav hero is-success">
+        {% block nav %}
+        <div class="nav-left">
+            <a class="nav-item">
+                <h3 class="title is-3 has-text-white">Admin BookStore</h3>
+            </a>
+        </div>
+        {% endblock %}
+    </nav>
+
+    <!--Section-->
+    <section class="section hero is-fullheight is-fullwidth">
+        {% block content %}
+        {% endblock %}
+    </section>
+
+    <!--Footer-->
+    <footer class="footer">
+        {% block footer %}
+        <div class="content has-text-centered">
+            <p>
+                Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#">Kolawole Mangabo</a>
+            </p>
+        </div>
+        {% endblock %}
+    </footer>
+</body>
+
+</html>

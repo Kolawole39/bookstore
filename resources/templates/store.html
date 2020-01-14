@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container  has-text-centered">
+  <span class="content is-medium">
+    Welcome to your panel admin. If you want to add a book,just follow instructions
+  </span>
+  <div class="columns">
+    <div class="column">
+
+    </div>
+    <div class="column is-4">
+      <form action="/add" method="POST">
+        {{ csrf_field }}
+        <div class="field">
+          <div class="control">
+            <input class="input is-success is-rounded is-focused" name="title" type="text" placeholder="Add Book title">
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <textarea class="textarea is-focused" name="description" type="text" placeholder="Description"></textarea>
+          </div>
+        </div>
+        <div class="field has-item-centered">
+          <div class="control">
+            <!--Add action-->
+            <button class="button is-rounded is-outlined is-success">Add Book</button>
+          </div>
+        </div>
+      </form>
+
+      <!--Books card-->
+      {% for book in books %}
+      <div class="box">
+        <article class="media">
+
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <h3 class="title is-3">{{ book.title }}</h3>
+                <br>
+                {{ book.description }}
+              </p>
+            </div>
+            <div>
+              <!--Update Action-->
+              <a class="button is-info" href="/{{ book.id }}/update">
+                <span class="">Update
+                  <i class="fas fa-retweet" aria-hidden="true"></i>
+                </span>
+              </a>
+              <!--Delete Action-->
+              <a class="button is-danger" href="/{{ book.id }}/delete">
+                <span class=""> Delete
+                  <i class="fas fa-heart" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="column">
+
+    </div>
+  </div>
+</div>
+{% endblock %}
