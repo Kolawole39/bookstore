@@ -7,9 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Book Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style>
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
         .has-item-centered {
             display: flex;
             justify-content: center;
@@ -19,32 +27,41 @@
 </head>
 
 <body>
-    <nav class="nav hero is-success">
+    <nav class="navbar navbar-light bg-success">
         {% block nav %}
-        <div class="nav-left">
-            <a class="nav-item">
-                <h3 class="title is-3 has-text-white">Admin BookStore</h3>
-            </a>
-        </div>
+        <span class="navbar-brand">
+            <h1 class="text-white">
+                Admin BookStore
+            </h1>
+        </span>
+
         {% endblock %}
     </nav>
 
     <!--Section-->
-    <section class="section hero is-fullheight is-fullwidth">
+    <section class="container-fluid">
         {% block content %}
         {% endblock %}
     </section>
 
     <!--Footer-->
-    <footer class="footer">
+    <footer class="footer container-fluid">
         {% block footer %}
-        <div class="content has-text-centered">
-            <p>
-                Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#">Kolawole Mangabo</a>
-            </p>
-        </div>
+        <p class="text-center">
+            Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#">Kolawole Mangabo</a>
+        </p>
         {% endblock %}
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

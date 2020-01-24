@@ -1,24 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="/{{ book.id }}/store" method="POST">
-  {{ csrf_field }}
-  <div class="field">
-    <div class="control">
-      <input class="input is-success is-rounded is-focused" value="{{ book.title }}" name="title" type="text"
-        placeholder="Add Book title">
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+    </div>
+
+    <div class="col-sm">
+      <form action="/{{ book.id }}/store" method="POST">
+        {{ csrf_field }}
+        <div class="form-group">
+          <input class="form-control" value="{{ book.title }}" name="title" type="text" placeholder="Add Book title">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" name="description" type="text"
+            placeholder="Description">{{ book.description }}</textarea>
+        </div>
+        <div class="form-group has-item-centered">
+          <!--Add action-->
+          <button class="btn btn-outline-success">Add Book</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col">
+
     </div>
   </div>
-  <div class="field">
-    <div class="control">
-      <textarea class="textarea is-focused" name="description" type="text"
-        placeholder="Description">{{ book.description }}</textarea>
-    </div>
-  </div>
-  <div class="field has-item-centered">
-    <div class="control">
-      <!--Add action-->
-      <button class="button is-rounded is-outlined is-success">Add Book</button>
-    </div>
-  </div>
-</form>
+</div>
+{% include 'helpers/messages.html' %}
+
 {% endblock %}

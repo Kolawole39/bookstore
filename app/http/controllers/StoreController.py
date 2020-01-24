@@ -22,17 +22,23 @@ class StoreController(Controller):
 
     def add(self, request:Request):
         """Add a book and its description"""
-        Book.create(
+        if not request.input('title') and not request.input('description'):
+            request.session.flash('warning', 'Empty Title/Description are not accepted!')
+        else:
+            Book.create(
             title=request.input('title'),
             description=request.input('description')
-        )
+            )
+            request.session.flash('success', 'Book Added!')
+
 
         return request.redirect('/')
     
     def delete(self, request:Request):
         book = Book.find(request.param('id'))
-
         book.delete()
+        request.session.flash('danger', 'Book Deleted!')
+
         return request.redirect('/')
 
     def update(self, view: View, request: Request):
@@ -47,5 +53,6 @@ class StoreController(Controller):
         book.description = request.input('description')
 
         book.save()
+        request.session.flash('sucess', 'Book Updated!')
 
         return request.redirect('/')
