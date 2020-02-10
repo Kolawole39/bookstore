@@ -4,12 +4,12 @@ from masonite.routes import Get, Post
 
 ROUTES = [
     #Get().route('/', 'WelcomeController@show').name('welcome'),
-    Get().route('/', 'StoreController@show').name('welcome'),
+    Get().route('/', 'BookController@show').name('welcome'),
     
-    Post().route('/add','StoreController@add'),
+    Post().route('/book/create','BookController@create'),
 
-    Get('/@id/delete','StoreController@delete'),
+    Get('/book/@id/delete','BookController@delete'),
 
-    Get('/@id/update','StoreController@update'),
-    Post('/@id/store','StoreController@store')
+    Get('/book/@id/update','BookController@update'),
+    Post('/book/@id/store','BookController@edit')
 ]
